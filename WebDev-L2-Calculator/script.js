@@ -10,7 +10,7 @@ btns.forEach((btn) => {
     btn.addEventListener('click', () => {
         let text = btn.textContent;
 
-        // 1. AC (All Clear) button handler
+        // AC (All Clear) button handler
         if (btn.dataset.action === 'clear') {
             currentInput = '';
             firstOperand = '';
@@ -20,14 +20,14 @@ btns.forEach((btn) => {
             return;
         }
 
-        // 2. DEL (Delete) button handler
+        // DEL (Delete) button handler
         if (btn.dataset.action === 'delete') {
             currentInput = currentInput.slice(0, -1);
             currOper.textContent = currentInput || '0';
             return;
         }
 
-        // 3. Number & Decimal handler
+        // Number & Decimal handler
         if (btn.classList.contains('number')) {
             if (text === '.' && currentInput.includes('.')) return;
             currentInput += text;
@@ -35,7 +35,7 @@ btns.forEach((btn) => {
             return;
         }
 
-        // 4. Operator handler (+, -, ×, ÷)
+        // Operator handler (+, -, ×, ÷)
         if (btn.classList.contains('operator') && text !== '=') {
             if (currentInput === '') return;
             if (firstOperand !== '') {
@@ -49,7 +49,7 @@ btns.forEach((btn) => {
             return;
         }
 
-        // 5. Equals (=) handler
+        // Equals (=) handler
         if (text === '=') {
             if (!firstOperand || !operator || !currentInput) return;
             let result = compute(firstOperand, currentInput, operator);
