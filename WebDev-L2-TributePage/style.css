@@ -1,0 +1,436 @@
+html {
+    scroll-behavior: smooth; /* Click karne par slowly scroll hoga */
+    scroll-padding-top: 80px; /* Navbar ke neeche content hide na ho */
+}
+        :root {
+            /* Palette: Stark Monochrome + Subtle Premium Accents */
+            --bg-primary: #ffffff;
+            --bg-secondary: #fdfdfd;
+            --bg-dark: #111111;
+            --text-main: #111111;
+            --text-muted: #555555;
+            --text-on-dark: #ffffff;
+            --accent-premium: #c4a77d; /* Soft Gold/Champagne */
+            --border-color: #eaeaea;
+            --shadow-subtle: 0 5px 25px -5px rgba(0,0,0,0.03);
+            --transition-primary: all 0.5s cubic-bezier(0.6, 0.05, 0.1, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .container.narrow {
+            text-align: left;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Header (Logo Area) */
+        .header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+            background: var(--bg-primary);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .logo .accent {
+            color: var(--accent-premium);
+        }
+
+        /* Hero Section (Macro Whitespace) */
+        .hero {
+            padding: 15vh 0 8vh 0;
+        }
+
+        .tagline {
+            font-size: clamp(0.85rem, 1vw, 1.1rem);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 10vw, 7rem);
+            font-weight: 500;
+            letter-spacing: -3px;
+            line-height: 1;
+            color: var(--bg-dark);
+        }
+
+        .main-title .line-2 {
+            font-weight: 600;
+            color: var(--accent-premium);
+        }
+
+        /* Editorial Image (Prominent & Grayscale Effect) */
+        .image-section {
+            margin-bottom: 120px;
+        }
+
+        .image-wrapper {
+            position: relative;
+            background: #ffffff;
+            padding: 16px;
+            border-radius: 4px;
+            box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        /* Yahan apni image ka path change karein (e.g., 'images/my-ada.jpg') */
+        .image-wrapper img {
+            width: 100%;
+            height: 700px; /* Force an elegant, tall editorial crop */
+            object-fit: cover;
+            object-position: top;
+            border-radius: 2px;
+            filter: grayscale(100%); /* Initial premium look */
+            transition: var(--transition-primary);
+        }
+
+        .image-wrapper img:hover {
+            filter: grayscale(0%);
+        }
+
+        .image-wrapper figcaption {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 20px;
+            text-align: right;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        /* Section Titles (Subtle Editorial Style) */
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .section-tagline {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent-premium);
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 500;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            text-align: left;
+        }
+
+        /* Narrative/Bio Content (Large typography, clean flow) */
+        .bio-content p {
+            font-size: 1.2rem;
+            color: #222222;
+            margin-bottom: 30px;
+            letter-spacing: -0.2px;
+        }
+
+        /* Modern Impact Section (Callout detail) */
+        .modern-impact {
+            background-color: var(--bg-dark);
+            color: var(--text-on-dark);
+            padding: 100px 0;
+        }
+
+        .modern-impact .section-title, .modern-impact p {
+            color: var(--text-on-dark);
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .modern-impact .bio-content p {
+            color: #d1d1d1;
+        }
+
+        /* Vertical Timeline (ReplacesGeneric Cards for True Storytelling) */
+        .timeline-container {
+            padding: 120px 0;
+            background-color: var(--bg-secondary);
+        }
+
+        .timeline {
+            position: relative;
+            border-left: 2px solid #dcdcdc;
+            padding-left: 48px;
+            margin-left: 12px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 70px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Timeline Marker (Minimalist Dot) */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -58px; /* Precise centering on the line */
+            top: 10px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--accent-premium);
+            border-radius: 50%;
+            border: 3px solid #ffffff; /* Gives it an integrated look */
+            box-shadow: 0 0 10px rgba(196, 167, 125, 0.4);
+        }
+
+        .timeline-item .year {
+            font-family: serif;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 600;
+            color: var(--text-main);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .timeline-item .info {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+        }
+
+        /* Quote Section (Macro text, prominent accent) */
+        .quote-section {
+            padding: 150px 0;
+            background-color: var(--bg-primary);
+        }
+
+        .quote-section blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.25;
+            color: var(--bg-dark);
+            margin-bottom: 30px;
+            letter-spacing: -1.5px;
+        }
+
+        .quote-section cite {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        /* Minimalist Footer */
+        .footer {
+            background-color: var(--bg-dark);
+            color: #d1d1d1;
+            padding: 100px 0;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .footer p {
+            font-weight: 400;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 900px) {
+            .impact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .image-wrapper img {
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 10vh 0 6vh 0;
+            }
+
+            .main-title {
+                letter-spacing: -2px;
+            }
+
+            .bio-content p {
+                font-size: 1.1rem;
+            }
+
+            .timeline {
+                padding-left: 30px;
+                margin-left: 8px;
+            }
+
+            .timeline-item::before {
+                left: -38px;
+            }
+        }
+
+        /* FAQ / Accordion Section */
+.faq-section {
+    padding: 80px 0 100px 0;
+    background-color: var(--bg-primary);
+}
+
+.faq-container {
+    border-top: 1px solid var(--border-color);
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 28px 0;
+    font-size: 1.15rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: var(--text-main);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition-primary);
+}
+
+.faq-question:hover {
+    color: var(--accent-premium);
+}
+
+.faq-icon {
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--text-muted);
+    transition: transform 0.4s cubic-bezier(0.6, 0.05, 0.1, 1), color 0.4s ease;
+}
+
+/* Smart Grid Transition for smooth opening */
+.faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.6, 0.05, 0.1, 1);
+}
+
+.faq-answer-inner {
+    overflow: hidden;
+}
+
+.faq-answer-inner p {
+    padding-bottom: 28px;
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* Active State (When button is clicked) */
+.faq-item.active .faq-answer {
+    grid-template-rows: 1fr;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg); /* Turns the + into a cross (×) */
+    color: var(--accent-premium);
+}
+/* Navbar Styling */
+.header {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-primary);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between; /* Logo left par, links right par */
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px; /* Links ke beech space */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: var(--transition-primary);
+}
+
+.nav-links a:hover {
+    color: var(--accent-premium); /* Hover par gold color */
+}
+
+/* Mobile Screen Adjustments for Navbar */
+@media (max-width: 600px) {
+    .nav-links {
+        display: none; /* Phone screen par filhal hide rakhein taake layout toote na */
+    }
+}
