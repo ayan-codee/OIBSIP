@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern To-Do App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Using Inter for a clean, modern app look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Header & Input Area -->
+        <header class="app-header">
+            <h1>My Tasks</h1>
+            <form id="todo-form" class="task-form">
+                <input type="text" id="task-input" placeholder="What needs to be done?" autocomplete="off" required>
+                <button type="submit" id="add-btn">Add Task</button>
+            </form>
+        </header>
+
+        <main class="app-main">
+            <!-- Pending Tasks Section -->
+            <section class="task-section">
+                <div class="section-header">
+                    <h2>Pending</h2>
+                    <span class="badge" id="pending-count">1</span>
+                </div>
+                
+                <!-- Empty State Message -->
+                <div id="pending-empty" class="empty-state" style="display: none;">
+                    No pending tasks. You're all caught up! ☕
+                </div>
+
+                <ul id="pending-list" class="task-list">
+                    <!-- DUMMY TASK: JS likhne ke baad hum isko hata denge -->
+                    <li class="task-item">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="task-checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <div class="task-content">
+                            <span class="task-text">Design the tribute page UI</span>
+                            <span class="task-time">Added: Today, 10:30 AM</span>
+                        </div>
+                        <div class="task-actions">
+                            <button class="btn-icon edit-btn" title="Edit">✎</button>
+                            <button class="btn-icon delete-btn" title="Delete">×</button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Completed Tasks Section -->
+            <section class="task-section mt-40">
+                <div class="section-header">
+                    <h2>Completed</h2>
+                    <span class="badge" id="completed-count">1</span>
+                </div>
+
+                <!-- Empty State Message -->
+                <div id="completed-empty" class="empty-state" style="display: none;">
+                    No completed tasks yet. Let's get to work! 🚀
+                </div>
+
+                <ul id="completed-list" class="task-list">
+                    <!-- DUMMY COMPLETED TASK -->
+                    <li class="task-item completed">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="task-checkbox" checked>
+                            <span class="checkmark"></span>
+                        </label>
+                        <div class="task-content">
+                            <span class="task-text">Set up the calculator logic</span>
+                            <span class="task-time">Completed: Yesterday, 4:15 PM</span>
+                        </div>
+                        <div class="task-actions">
+                            <button class="btn-icon delete-btn" title="Delete">×</button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- JS file link (abhi empty banayenge) -->
+    <script src="script.js"></script>
+</body>
+</html>
