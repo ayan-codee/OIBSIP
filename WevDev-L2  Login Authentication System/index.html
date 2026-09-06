@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth System | Internship Task</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <section id="login-view" class="view active">
+            <div class="auth-box">
+                <h2>Welcome Back</h2>
+                <p class="subtitle">Please enter your details to sign in.</p>
+                
+                <div id="login-error" class="error-msg" style="display: none;"></div>
+                
+                <form id="login-form">
+                    <div class="input-group">
+                        <label>Username / Email</label>
+                        <input type="text" id="login-username" required autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+                <p class="switch-view">Don't have an account? <span onclick="switchView('register-view')">Register here</span></p>
+            </div>
+        </section>
+
+        <section id="register-view" class="view">
+            <div class="auth-box">
+                <h2>Create Account</h2>
+                <p class="subtitle">Join us to access the dashboard.</p>
+
+                <div id="register-error" class="error-msg" style="display: none;"></div>
+
+                <form id="register-form">
+                    <div class="input-group">
+                        <label>Username / Email</label>
+                        <input type="text" id="reg-username" required autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" id="reg-password" required placeholder="Min 8 chars, 1 number">
+                    </div>
+                    <button type="submit" class="btn-primary">Register</button>
+                </form>
+                <p class="switch-view">Already have an account? <span onclick="switchView('login-view')">Login here</span></p>
+            </div>
+        </section>
+
+        <section id="dashboard-view" class="view">
+            <div class="dashboard-box">
+                <h2>Protected Dashboard 🛡️</h2>
+                <p>Welcome, <strong id="logged-in-user">User</strong>!</p>
+                <p class="subtitle">You have successfully authenticated to view this page.</p>
+                <button id="logout-btn" class="btn-outline">Logout</button>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
